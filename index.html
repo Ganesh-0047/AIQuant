@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>AIQuant Lite</title>
+
+    <link rel="stylesheet" href="style.css"/>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            AIQuant Lite
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Markets</a></li>
+            <li><a href="#">Strategies</a></li>
+            <li><a href="#">Portfolio</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Smart Automated Trading Platform
+            </h1>
+
+            <p>
+                Track markets, analyze trends, and automate your trading strategies using AI-powered tools.
+            </p>
+
+            <button id="startBtn">
+                Start Trading
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- MARKET SECTION -->
+    <section class="market-section">
+
+        <h2>Live Market Overview</h2>
+
+        <div class="market-container">
+
+            <div class="market-card">
+                <h3>BTC/USDT</h3>
+                <p id="btcPrice">$0</p>
+            </div>
+
+            <div class="market-card">
+                <h3>ETH/USDT</h3>
+                <p id="ethPrice">$0</p>
+            </div>
+
+            <div class="market-card">
+                <h3>SOL/USDT</h3>
+                <p id="solPrice">$0</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+<script src="https://s3.tradingview.com/tv.js"></script>
+
+<script>
+
+new TradingView.widget({
+
+    "width": "100%",
+    "height": 600,
+    "symbol": "BINANCE:BTCUSDT",
+    "interval": "15",
+    "timezone": "Asia/Kolkata",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "toolbar_bg": "#111827",
+    "enable_publishing": false,
+    "hide_side_toolbar": false,
+    "allow_symbol_change": true,
+    "container_id": "tradingview_chart"
+
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
+<!-- CHART SECTION -->
+
+<section class="chart-section">
+
+    <h2>BTC Live Chart</h2>
+
+    <div class="tradingview-widget-container">
+
+        <div id="tradingview_chart"></div>
+
+    </div>
+
+</section>
+<!-- SIGNAL SECTION -->
+
+<section class="signal-section">
+
+    <h2>Trading Signals</h2>
+
+    <div class="signal-container">
+
+        <div class="signal-card">
+
+            <h3>BTC RSI Signal</h3>
+
+            <p id="signalText">
+                Loading...
+            </p>
+
+            <p id="rsiValue">
+                RSI: 0
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- PAPER TRADING SECTION -->
+
+<section class="paper-section">
+
+    <h2>Paper Trading Bot</h2>
+
+    <div class="paper-container">
+
+        <div class="paper-card">
+
+            <h3>Balance</h3>
+
+            <h1 id="balanceValue">
+                $0
+            </h1>
+
+        </div>
+
+        <div class="paper-card">
+
+            <h3>Position</h3>
+
+            <h1 id="positionValue">
+                NONE
+            </h1>
+
+        </div>
+
+        <div class="paper-card">
+
+            <h3>Bot Action</h3>
+
+            <h1 id="actionValue">
+                HOLD
+            </h1>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- TRADE HISTORY -->
+
+<section class="history-section">
+
+    <h2>Recent Trades</h2>
+
+    <div class="history-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Type</th>
+
+                    <th>Price</th>
+
+                    <th>Profit</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tradeTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+<!-- AI SENTIMENT SECTION -->
+
+<section class="ai-section">
+
+    <h2>AI Market Sentiment</h2>
+
+    <div class="ai-container">
+
+        <div class="ai-card">
+
+            <h3>Market Mood</h3>
+
+            <h1 id="marketMood">
+                ANALYZING
+            </h1>
+
+        </div>
+
+        <div class="ai-card">
+
+            <h3>AI Confidence</h3>
+
+            <h1 id="confidenceValue">
+                0%
+            </h1>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- PERFORMANCE SECTION -->
+
+<section class="performance-section">
+
+    <h2>Bot Performance Analytics</h2>
+
+    <div class="performance-container">
+
+        <div class="performance-card">
+
+            <h3>Total Trades</h3>
+
+            <h1 id="totalTrades">
+                0
+            </h1>
+
+        </div>
+
+        <div class="performance-card">
+
+            <h3>Total Profit</h3>
+
+            <h1 id="totalProfit">
+                $0
+            </h1>
+
+        </div>
+
+        <div class="performance-card">
+
+            <h3>Win Rate</h3>
+
+            <h1 id="winRate">
+                0%
+            </h1>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- PNL CHART SECTION -->
+
+<section class="chart-performance-section">
+
+    <h2>Portfolio Growth</h2>
+
+    <div class="chart-box">
+
+        <canvas id="pnlChart"></canvas>
+
+    </div>
+
+</section>
