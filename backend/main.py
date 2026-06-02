@@ -252,11 +252,11 @@ def equity_curve():
         "equity": equity
 
     }
-TELEGRAM_BOT_TOKEN = "8801428951:AAFCZJGTvLKal0mvql3pW_Rzs1w6knYthLc"
+TELEGRAM_BOT_TOKEN = "8801428951:AAHXi6_o5HziMwLIC66yaUHOQ3Sdw5gRws8"
 
 def send_telegram_message(message, chat_id):
 
-    url = f"https://api.telegram.org/bot8801428951:AAFCZJGTvLKal0mvql3pW_Rzs1w6knYthLc/sendMessage"
+    url = f"https://api.telegram.org/bot8801428951:AAHXi6_o5HziMwLIC66yaUHOQ3Sdw5gRws8/sendMessage"
 
     data = {
         "chat_id": chat_id,
