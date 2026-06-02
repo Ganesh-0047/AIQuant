@@ -21,7 +21,7 @@ console.log(rsiValue);
 async function loadBTCPrice() {
 
     const response = await fetch(
-        "http://127.0.0.1:8000/btc-price"
+        "http://aiquant-2hiv.onrender.com/btc-price"
     );
 
     const data = await response.json();
@@ -35,7 +35,7 @@ async function loadBTCPrice() {
 async function loadRSI() {
 
     const response = await fetch(
-        "http://127.0.0.1:8000/btc-rsi"
+        "http://aiquant-2hiv.onrender.com/btc-rsi"
     );
 
     const data = await response.json();
@@ -90,7 +90,7 @@ const tradeTable = document.getElementById("tradeTable");
 async function loadPaperTrade(){
 
     const response = await fetch(
-        "http://127.0.0.1:8000/paper-trade"
+        "http://aiquant-2hiv.onrender.com/paper-trade"
     );
 
     const data = await response.json();
@@ -136,7 +136,7 @@ setInterval(loadPaperTrade, 5000);
 async function loadAISentiment() {
 
     const response = await fetch(
-        "http://127.0.0.1:8000/ai-sentiment"
+        "http://aiquant-2hiv.onrender.com/ai-sentiment"
     );
 
     const data = await response.json();
@@ -173,7 +173,7 @@ setInterval(loadAISentiment, 5000);
 async function loadPerformance() {
 
     const response = await fetch(
-        "http://127.0.0.1:8000/performance"
+        "http://aiquant-2hiv.onrender.com/performance"
     );
 
     const data = await response.json();
@@ -211,7 +211,7 @@ let pnlChart = null;
 async function loadEquityCurve() {
 
     const response = await fetch(
-        "http://127.0.0.1:8000/equity-curve"
+        "http://aiquant-2hiv.onrender.com"
     );
 
     const data = await response.json();
