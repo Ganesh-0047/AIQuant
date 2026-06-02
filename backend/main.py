@@ -63,12 +63,21 @@ def paper_trade():
     response = requests.get(url)
 
     data = response.json()
+    
+    print(data)
+    
+    if not isinstance(data, list):
+        return {
+            "error": "Binance API failed",
+            "response": data
+        }
 
     closes = []
 
     for candle in data:
-
-        closes.append(float(candle[4]))
+        if len(candle) > 4:
+            
+            closes.append(float(candle[4]))
 
     current_price = closes[-1]
 

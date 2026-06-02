@@ -21,7 +21,7 @@ console.log(rsiValue);
 async function loadBTCPrice() {
 
     const response = await fetch(
-        "http://aiquant-2hiv.onrender.com/btc-price"
+        "https://aiquant-2hiv.onrender.com/btc-price"
     );
 
     const data = await response.json();
@@ -35,7 +35,7 @@ async function loadBTCPrice() {
 async function loadRSI() {
 
     const response = await fetch(
-        "http://aiquant-2hiv.onrender.com/btc-rsi"
+        "https://aiquant-2hiv.onrender.com/btc-rsi"
     );
 
     const data = await response.json();
@@ -173,7 +173,7 @@ setInterval(loadAISentiment, 5000);
 async function loadPerformance() {
 
     const response = await fetch(
-        "http://aiquant-2hiv.onrender.com/performance"
+        "https://aiquant-2hiv.onrender.com/performance"
     );
 
     const data = await response.json();
@@ -211,7 +211,7 @@ let pnlChart = null;
 async function loadEquityCurve() {
 
     const response = await fetch(
-        "http://aiquant-2hiv.onrender.com"
+        "https://aiquant-2hiv.onrender.com/equity-curve"
     );
 
     const data = await response.json();
