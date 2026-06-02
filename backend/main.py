@@ -73,11 +73,22 @@ def paper_trade():
         }
 
     closes = []
-
+    
+    if not isinstance(data, list):
+        return {
+            "error": "Invalid Binance responce",
+            "response": data
+        }
     for candle in data:
-        if len(candle) > 4:
-            
+        try:
             closes.append(float(candle[4]))
+        except Exception:
+            continue
+        
+        if len(closes) == 0:
+            return {
+                "error": "No candle data received"
+                }
 
     current_price = closes[-1]
 
