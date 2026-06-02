@@ -58,37 +58,16 @@ def paper_trade():
 
     # Get RSI Data
 
-    url = "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=15m&limit=100"
+    btc = yf.Ticker("BTC-USD")
 
-    response = requests.get(url)
+    hist = btc.history(period="7d", interval="15m")
 
-    data = response.json()
-    
-    print(data)
-    
-    if not isinstance(data, list):
+    closes = hist["Close"].dropna().tolist()
+
+    if len(closes) == 0:
         return {
-            "error": "Binance API failed",
-            "response": data
+            "error": "No price data received"
         }
-
-    closes = []
-    
-    if not isinstance(data, list):
-        return {
-            "error": "Invalid Binance responce",
-            "response": data
-        }
-    for candle in data:
-        try:
-            closes.append(float(candle[4]))
-        except Exception:
-            continue
-        
-        if len(closes) == 0:
-            return {
-                "error": "No candle data received"
-                }
 
     current_price = closes[-1]
 
@@ -100,9 +79,7 @@ def paper_trade():
 
     latest_rsi = df["rsi"].iloc[-1]
 
-
     action = "HOLD"
-
 
     # BUY CONDITION
 
