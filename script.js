@@ -90,7 +90,7 @@ const tradeTable = document.getElementById("tradeTable");
 async function loadPaperTrade(){
 
     const response = await fetch(
-        "http://aiquant-2hiv.onrender.com/paper-trade"
+        "https://aiquant-2hiv.onrender.com/paper-trade"
     );
 
     const data = await response.json();
@@ -136,7 +136,7 @@ setInterval(loadPaperTrade, 5000);
 async function loadAISentiment() {
 
     const response = await fetch(
-        "http://aiquant-2hiv.onrender.com/ai-sentiment"
+        "https://aiquant-2hiv.onrender.com/ai-sentiment"
     );
 
     const data = await response.json();
