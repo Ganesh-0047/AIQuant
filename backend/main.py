@@ -139,17 +139,11 @@ def paper_trade():
 @app.get("/ai-sentiment")
 def ai_sentiment():
 
-    url = "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=15m&limit=100"
-
-    response = requests.get(url)
-
-    data = response.json()
-
-    closes = []
-
-    for candle in data:
-
-        closes.append(float(candle[4]))
+    btc = yf.Ticker("BTC-USD")
+    
+    hist = btc.history(period="7d", interval="15m")
+    
+    closes = hist["Close"].dropna().tolist()
 
     df = pd.DataFrame(closes, columns=["close"])
 
